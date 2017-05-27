@@ -33,7 +33,7 @@ public abstract class AbstractDao<T> implements DAO<T> {
 
     @Override
     public T find(Long id) {
-        return null;
+        return entityManager.find(persistedClass(), id);
     }
 
     @Override
