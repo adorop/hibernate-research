@@ -20,7 +20,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(path = "/{id}")
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public ProductDto read(@PathVariable Long id) {
         return productService.find(id);
     }
@@ -32,5 +32,11 @@ public class ProductController {
             throw new BadRequestException(errors.getFieldErrors().toString());
         }
         productService.save(productDto);
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        productService.delete(id);
     }
 }
