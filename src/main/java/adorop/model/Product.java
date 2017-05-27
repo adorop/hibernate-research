@@ -18,4 +18,6 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
+    @Column(name = "times_viewed")
+    private Long timesViewed;
 }
