@@ -1,8 +1,8 @@
 package adorop.service.dto;
 
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data

@@ -6,8 +6,9 @@ import adorop.service.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/products")
@@ -21,7 +22,7 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void save(@RequestBody @Validated  ProductDto productDto, Errors errors) {
+    public void save(@RequestBody @Valid ProductDto productDto, Errors errors) {
         if (errors.hasErrors()) {
             throw new BadRequestException(errors.getFieldErrors().toString());
         }
