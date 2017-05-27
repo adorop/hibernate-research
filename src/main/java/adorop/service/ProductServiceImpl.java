@@ -31,6 +31,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductDto find(Long id) {
         Product product = productDAO.find(id);
+        product.setTimesViewed(product.getTimesViewed() + 1L);
         return toDtoConverter.convert(product);
     }
 
