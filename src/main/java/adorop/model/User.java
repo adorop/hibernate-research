@@ -17,4 +17,13 @@ public class User {
     private String name;
     @OneToMany
     private Set<Product> products = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", products=" + products +
+                '}';
+    }
 }

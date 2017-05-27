@@ -18,4 +18,14 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", owner=" + owner.getId() +
+                '}';
+    }
 }
