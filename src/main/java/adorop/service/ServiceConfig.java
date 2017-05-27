@@ -1,6 +1,7 @@
 package adorop.service;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -10,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("adorop.service")
 public class ServiceConfig {
     @Bean
     PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
