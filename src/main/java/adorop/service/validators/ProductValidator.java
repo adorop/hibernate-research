@@ -2,14 +2,13 @@ package adorop.service.validators;
 
 import adorop.dao.DAO;
 import adorop.model.User;
+import adorop.service.BadRequestException;
 import adorop.service.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
 
 @Component
-public class ProductValidator implements Validator {
+public class ProductValidator implements Validator<ProductDto> {
     private final DAO<User> userDAO;
 
     @Autowired
@@ -18,17 +17,11 @@ public class ProductValidator implements Validator {
     }
 
     @Override
-    public boolean supports(Class<?> aClass) {
-        return aClass == ProductDto.class;
-    }
-
-    @Override
-    public void validate(Object o, Errors errors) {
-        ProductDto productDto= (ProductDto) o;
-        Long userId = productDto.getOwnerId();
+    public void validate(ProductDto entity) {
+        Long userId = entity.getOwnerId();
         User user = userDAO.find(userId);
         if (user == null) {
-            errors.reject("ownerId is not valid");
+            throw new BadRequestException("ownerId is not valid");
         }
     }
 }
