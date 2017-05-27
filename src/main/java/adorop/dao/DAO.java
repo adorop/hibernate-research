@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface DAO<T> {
     List<T> findAll();
-    void save(T entity);
+    T save(T entity);
     T update(T entity);
     T find(Long id);
     void delete(Long id);
