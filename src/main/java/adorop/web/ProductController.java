@@ -20,6 +20,11 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @RequestMapping(path = "/{id}")
+    public ProductDto read(Long id) {
+        return productService.find(id);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody @Valid ProductDto productDto, Errors errors) {
