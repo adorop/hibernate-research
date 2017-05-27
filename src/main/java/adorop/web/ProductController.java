@@ -4,13 +4,9 @@ import adorop.service.BadRequestException;
 import adorop.service.ProductService;
 import adorop.service.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.validation.Errors;
-import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +19,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void save(@RequestBody @Validated  ProductDto productDto, Errors errors) {
         if (errors.hasErrors()) {
