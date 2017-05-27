@@ -1,8 +1,6 @@
-package dao;
+package adorop.dao;
 
-import model.Product;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import adorop.model.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

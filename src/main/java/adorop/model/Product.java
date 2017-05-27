@@ -1,4 +1,4 @@
-package model;
+package adorop.model;
 
 import lombok.Getter;
 import lombok.Setter;
