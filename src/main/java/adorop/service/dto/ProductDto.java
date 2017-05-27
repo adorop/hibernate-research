@@ -1,4 +1,4 @@
-package adorop.dto;
+package adorop.service.dto;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
-package adorop.dto.converters;
+package adorop.service.dto.converters;
 
 import adorop.dao.DAO;
-import adorop.dto.ProductDto;
+import adorop.service.dto.ProductDto;
 import adorop.model.Product;
 import adorop.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
