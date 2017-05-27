@@ -6,8 +6,10 @@ import adorop.service.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
     private final DAO<Product> productDAO;
     private final Converter<ProductDto, Product> converter;
