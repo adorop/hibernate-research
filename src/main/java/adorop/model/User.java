@@ -15,6 +15,4 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "owner")
-    private Collection<Product> products = new ArrayList<>();
 }
