@@ -21,7 +21,7 @@ public class ProductController {
     }
 
     @RequestMapping(path = "/{id}")
-    public ProductDto read(Long id) {
+    public ProductDto read(@PathVariable Long id) {
         return productService.find(id);
     }
 
