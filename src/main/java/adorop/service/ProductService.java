@@ -6,4 +6,5 @@ import adorop.service.dto.ProductDto;
 public interface ProductService {
     ProductDto find(Long id);
     Product save(ProductDto productDto);
+    void delete(Long id);
 }

@@ -48,4 +48,12 @@ public class ProductServiceImpl implements ProductService {
                 .add(product);
         return product;
     }
+
+    @Override
+    public void delete(Long id) {
+        Product product = productDAO.find(id);
+        userDAO.find(product.getOwner().getId())
+                .getProducts()
+                .remove(product);
+    }
 }
