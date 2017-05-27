@@ -14,15 +14,24 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductServiceImpl implements ProductService {
     private final DAO<Product> productDAO;
     private final Converter<ProductDto, Product> converter;
+    private final Converter<Product, ProductDto> toDtoConverter;
     private final Validator<ProductDto> validator;
 
     @Autowired
     public ProductServiceImpl(DAO<Product> productDAO,
                               Converter<ProductDto, Product> converter,
+                              Converter<Product, ProductDto> toDtoConverter,
                               Validator<ProductDto> validator) {
         this.productDAO = productDAO;
         this.converter = converter;
+        this.toDtoConverter = toDtoConverter;
         this.validator = validator;
+    }
+
+    @Override
+    public ProductDto find(Long id) {
+        Product product = productDAO.find(id);
+        return toDtoConverter.convert(product);
     }
 
     @Override
