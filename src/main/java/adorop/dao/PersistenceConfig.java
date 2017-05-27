@@ -5,10 +5,7 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -16,7 +13,6 @@ import java.util.Map;
 
 @Configuration
 @ComponentScan("adorop.dao")
-@EnableTransactionManagement
 public class PersistenceConfig {
     @Bean
     DataSource dataSource() {
@@ -43,10 +39,5 @@ public class PersistenceConfig {
         properties.put("hibernate.show_sql", "true");
         properties.put("hibernate.format_sql", "true");
         return properties;
-    }
-
-    @Bean
-    PlatformTransactionManager transactionManager() {
-        return new JpaTransactionManager(entityManagerFactoryBean().getObject());
     }
 }
