@@ -2,12 +2,14 @@ package adorop.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "PRODUCT")
+@DynamicUpdate
 @Getter @Setter
 public class Product {
     @Id
