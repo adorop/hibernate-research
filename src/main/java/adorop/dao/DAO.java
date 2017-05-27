@@ -9,4 +9,6 @@ public interface DAO<T> {
     List<T> findAll();
     T save(T entity);
     T update(T entity);
+    T find(Long id);
+    void delete(Long id);
 }
