@@ -16,19 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/products")
 public class ProductController {
-    private final Validator productValidator;
     private final ProductService productService;
 
     @Autowired
-    public ProductController(@Qualifier("productValidator") Validator productValidator,
-                             ProductService productService) {
-        this.productValidator = productValidator;
+    public ProductController(ProductService productService) {
         this.productService = productService;
-    }
-
-    @InitBinder
-    public void initBinder(WebDataBinder webDataBinder) {
-        webDataBinder.addValidators(productValidator);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
